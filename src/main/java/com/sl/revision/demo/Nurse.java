@@ -1,21 +1,13 @@
 package com.sl.revision.demo;
 
-public class Nurse implements Staff {
+import org.springframework.stereotype.Component;
 
-	private String name;
-	
-	public Nurse(String name) {
-		super();
-		this.name = name;
-	}
+@Component
+public class Nurse implements Staff {
 
 	public void assist() {
 		System.out.println("Nurse is assinting");
 	}
 
-	@Override
-	public String toString() {
-		return "Nurse [name=" + name + "]";
-	}
 	
 }
