@@ -15,7 +15,9 @@ public class Main {
 		ApplicationContext context = new AnnotationConfigApplicationContext(BeanConfig.class);
 		
 		
-		Staff nurse = (Nurse) context.getBean("nurse");
+		//Staff nurse = (Nurse) context.getBean("nurse");
+		Nurse nurse = context.getBean(Nurse.class);
+		
 		nurse.assist();
 		System.out.println(nurse);
 		

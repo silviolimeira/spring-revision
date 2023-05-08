@@ -2,7 +2,6 @@ package com.sl.revision.demo;
 
 import org.springframework.stereotype.Component;
 
-@Component
 public class Nurse implements Staff {
 
 	public void assist() {
