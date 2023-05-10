@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sl.tutorial.entity.Department;
+import com.sl.tutorial.error.DepartmentNotFoundException;
 import com.sl.tutorial.service.DepartmentService;
 
 import jakarta.validation.Valid;
@@ -39,13 +40,18 @@ public class DepartmentController {
 	}
 	
 	@DeleteMapping("/departments/{id}")
-	public String fetchDepartmentById(@PathVariable("id") Long departmentId) {
+	public String deleteDepartmentById(@PathVariable("id") Long departmentId) {
 		return departmentService.deleteDepartmentById(departmentId);
 	}
 	
 	@PutMapping("/departments/{id}")
 	public Department updateDepartment(@PathVariable("id") Long departmentId, @RequestBody Department department) {
 		return departmentService.updateDepartment(departmentId, department);
+	}
+
+	@GetMapping("/departments/{id}")
+	public Department fetchDepartmentById(@PathVariable("id") Long id) throws DepartmentNotFoundException {
+		return departmentService.fetchDepartById(id);
 	}
 	
 	@GetMapping("/departments/name/{name}")

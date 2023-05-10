@@ -1,0 +1,38 @@
+version: '3'
+
+networks: 
+    compose-network:
+      driver: bridge  
+
+volumes:
+  db:
+
+services:
+  db:
+    image: mysql:8.0.32
+    #restart: always
+    environment:
+      MYSQL_DATABASE: db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: admin
+      ssl: 0
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./db:/var/lib/mysql
+    networks:
+      - compose-network      
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.2.1
+    ports:
+      - '8090:80'
+    environment:
+      MYSQL_USERNAME: admin
+      MYSQL_ROOT_PASSWORD: admin
+    networks:
+      - compose-network      
+    depends_on:
+      - db
+
