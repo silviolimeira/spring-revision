@@ -2,6 +2,8 @@ package com.sl.tutorial.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,17 +21,20 @@ import jakarta.validation.Valid;
 @RestController
 public class DepartmentController {
 	
+	private final Logger LOGGER = LoggerFactory.getLogger(DepartmentController.class);
+			
 	@Autowired
 	private DepartmentService departmentService;
 	
 	@PostMapping("/departments")
 	public Department saveDepartment(@Valid @RequestBody Department department) {
-
+		LOGGER.info("Inside saveDepartament of DepartmentController - acentuação");
 		return departmentService.saveDepartment(department);
 	}
 	
 	@GetMapping("/departments")
 	public List<Department> fetchDepartmentList() {
+		LOGGER.info("Inside fetchDepartamentList of DepartmentController");
 		return departmentService.fetchDepartmentList();
 	}
 	

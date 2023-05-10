@@ -3,6 +3,7 @@ package com.sl.tutorial.service;
 import java.util.List;
 import java.util.Objects;
 
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import com.sl.tutorial.repository.DepartmentRepository;
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
 
+	
 	@Autowired
 	private DepartmentRepository departmentRepository;
 
