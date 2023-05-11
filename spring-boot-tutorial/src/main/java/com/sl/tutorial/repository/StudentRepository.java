@@ -12,20 +12,23 @@ import com.sl.tutorial.entity.Student;
 public interface StudentRepository extends JpaRepository<Student, Long> {
 
 	List<Student> findByFirstName(String firstName);
-	
+
 	List<Student> findByFirstNameContaining(String name);
-	
+
 	List<Student> findByLastNameNotNull();
-	
+
 	List<Student> findByGuardianName(String guardianName);
-	
+
 	Student findByFirstNameAndLastName(String firstName, String lastName);
-	
+
 	// JPQL
 	@Query("select s from Student s where s.emailId = ?1")
-	Student getStudentByEmailAddress(String emailId); 
-	
+	Student getStudentByEmailAddress(String emailId);
+
 	// JPQL
 	@Query("select s.firstName from Student s where s.emailId = ?1")
-	String getStudentFirstNameByEmailAddress(String firstName); 
+	String getStudentFirstNameByEmailAddress(String firstName);
+
+	@Query(value = "SELECT * FROM tbl_student s WHERE s.email_address = ?1", nativeQuery = true)
+	Student getStudentByEmailAddressNative(String emailId);
 }

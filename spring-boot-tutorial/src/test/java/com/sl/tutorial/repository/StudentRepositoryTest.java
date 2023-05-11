@@ -20,7 +20,7 @@ class StudentRepositoryTest {
 	@Autowired
 	private StudentRepository studentRepository;
 
-	//@BeforeEach
+	// @BeforeEach
 	@BeforeAll
 	public void setUp() throws Exception {
 		Guardian guardiam = Guardian.builder().email("nikhil@gmail.com").name("Nikhil").mobile("9999956324").build();
@@ -69,26 +69,31 @@ class StudentRepositoryTest {
 		List<Student> students = studentRepository.findByGuardianName("Nikhil");
 		System.out.println("printStudentBasedOnGuardianName: " + students);
 	}
-	
+
 	@Test
 	public void printStudentBasedOnFirstNameAndLastName() {
 		Student students = studentRepository.findByFirstNameAndLastName("Shivam", "Kumar");
 		System.out.println("printStudentBasedOnFirstNameAndLastName: " + students);
-	}	
-	
+	}
+
 	@Test
 	public void printStudenByEmailAddress() {
-		Student student =
-				studentRepository.getStudentByEmailAddress("shivam@gmail.com");
-		
+		Student student = studentRepository.getStudentByEmailAddress("shivam@gmail.com");
+
 		System.out.println("printStudenByEmailAddress: " + student);
 	}
-	
+
 	@Test
 	public void printStudentFirstNameByEmailAddress() {
-		String firstName = 
-				studentRepository.getStudentFirstNameByEmailAddress("shivam@gmail.com");
+		String firstName = studentRepository.getStudentFirstNameByEmailAddress("shivam@gmail.com");
 		System.out.println("printStudentFirstNameByEmailAddress: " + firstName);
+	}
+
+	@Test
+	public void printGetStudentByEmailAddressNative() {
+		Student student = studentRepository.getStudentByEmailAddressNative("shivam@gmail.com");
+		System.out.println("printGetStudentByEmailAddressNative: " + student);
+
 	}
 
 	@Test
