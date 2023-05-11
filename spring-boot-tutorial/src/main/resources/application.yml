@@ -1,0 +1,7 @@
+spring:
+  jpa:
+    open-in-view: false
+  profiles:
+    active: ${APP_PROFILE:test}
+welcome:
+  message: <h2>Welcome to Daily Code Buffer !!!!</h2>

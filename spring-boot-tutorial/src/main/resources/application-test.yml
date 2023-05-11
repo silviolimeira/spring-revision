@@ -1,0 +1,29 @@
+logging:
+  file:
+    name: logfile.log
+  level:
+    org:
+      springframework:
+        jpa: DEBUG
+  logback:
+    rollingpolicy:
+      file-name-pattern: logfile-%d{yyyy-MM-dd}.%i.log.gz
+      max-file-size: 1KB
+      max-history: 1
+server:
+  port: 8080
+spring:
+  datasource:
+    generate-unique-name: false
+    name: testdb
+    password: ''
+    username: sa
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
