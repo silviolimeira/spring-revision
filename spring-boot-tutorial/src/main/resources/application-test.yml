@@ -1,3 +1,9 @@
+management:
+  endpoints:
+    web:
+      exposure:
+       include: "*"  
+
 logging:
   file:
     name: logfile.log
@@ -27,3 +33,5 @@ spring:
       hibernate:
         format_sql: true
     show-sql: true
+  
+  
