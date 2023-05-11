@@ -1,7 +1,6 @@
 package com.sl.tutorial.repository;
 
-import static org.junit.jupiter.api.Assertions.fail;
-
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,7 +26,7 @@ class DepartmentRepositoryTest {
 		
 		entityManager.persist(department);
 	}
-
+	
 	@Test
 	void whenFindById_thenReturnDepartment() {
 		Department department = departmentRepository.findById(1L).get();
