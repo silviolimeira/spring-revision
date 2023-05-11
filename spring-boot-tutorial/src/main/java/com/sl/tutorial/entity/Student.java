@@ -1,6 +1,7 @@
 package com.sl.tutorial.entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -32,8 +33,7 @@ public class Student {
 	@Column(name = "email_address", nullable = false)
 	private String emailId;
 
-	private String guardianName;
-	private String guardianEmail;
-	private String guardianMobile;
-
+	@Embedded
+	private Guardian guardian;
+	
 }
