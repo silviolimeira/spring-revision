@@ -34,6 +34,6 @@ public class Student {
 
 	private String guardianName;
 	private String guardianEmail;
-	private String grardianMobile;
+	private String guardianMobile;
 
 }
