@@ -22,7 +22,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-//@ToString(exclude = "courses")
+@ToString(exclude = "courses")
 public class Teacher {
 
 	@Id
@@ -32,7 +32,7 @@ public class Teacher {
 	private String firstName;
 	private String lastName;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "teacher_id", referencedColumnName = "teacherId")
 	private List<Course> courses;
 	
