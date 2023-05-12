@@ -3,6 +3,7 @@ package com.sl.tutorial.repository;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
@@ -14,6 +15,7 @@ import org.springframework.data.domain.Sort;
 
 import com.sl.tutorial.entity.Course;
 import com.sl.tutorial.entity.CourseMaterial;
+import com.sl.tutorial.entity.Student;
 import com.sl.tutorial.entity.Teacher;
 
 @SpringBootTest
@@ -110,4 +112,18 @@ class CourseRepositoryTest {
 		System.out.println("firstPageTenRecords findByTitleContaining = " + courses);
 	}
 	
+	@Test
+	public void saveCourseWithStudentAndTeacher() {
+		Teacher teacher = Teacher.builder().firstName("Lizze").lastName("Morgan").build();
+		Student student = Student.builder().firstName("Abhishek").lastName("Singh").emailId("abhishek@gmail.com").build();
+		Course course = Course.builder().title("AI").credit(12).teacher(teacher).build();
+		
+		course.addStudents(student);
+		Course novo = courseRepository.save(course);
+		
+		System.out.println("saveCourseWithStudentAndTeacher: " + novo);
+				
+	}
+	
 }
+
