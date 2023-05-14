@@ -1,9 +1,3 @@
-db
-log*.log.*
-log*.log
-log*.tmp
-
-
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
